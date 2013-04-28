@@ -1,0 +1,165 @@
+div.jp-audio-stream {
+	width: 253px;
+	height: 107px;
+	padding-top: 43px;
+	background: url("playerbackground.jpg") no-repeat;
+	-webkit-box-shadow: 2px 2px 10px rgba(50, 50, 50, 1);
+	-moz-box-shadow:    2px 2px 10px rgba(50, 50, 50, 1);
+	box-shadow:         2px 2px 10px rgba(50, 50, 50, 1);
+}
+
+div.jp-artist {
+	position: static;
+	font: arial 12px;
+	color: white;
+	height: 23px;
+	width: 200px;
+	padding-left: 25px;
+	text-align: center;
+}
+
+div.jp-title {
+	font: bold 20px intro;	
+	color: white;
+	height: 28px;
+	width: 200px;
+	padding-left: 20px;
+	text-align: center;
+}
+
+div.jp-interface ul.jp-controls {
+	list-style-type:none;
+	margin:0;
+	padding: 0px 0 0 15px;
+	overflow:hidden;	
+	height: 49px;		
+}
+
+div.jp-interface ul.jp-controls li {
+	display:inline;
+	float: left;
+}
+
+div.jp-interface {	
+	position: relative;	
+	width:100%;
+}
+
+div.jp-interface ul.jp-controls a {
+	display:block;
+	overflow:hidden;
+	text-indent:-9999px;
+}
+a.jp-play,
+a.jp-pause {
+	width:40px;
+	height:40px;	
+}
+
+a.jp-play {
+	background: url("icons.png") -169px 3px no-repeat;
+}
+
+a.jp-play:hover {
+	background: url("icons.png") -169px -90px no-repeat;
+}
+
+
+a.jp-pause {
+	background: url("icons.png") -165px -35px no-repeat;
+	display: none;
+}
+a.jp-pause:hover {
+	background: url("icons.png") -165px -128px no-repeat;
+}
+
+
+a.jp-mute,
+a.jp-unmute,
+a.jp-volume-max {
+	width:50px;
+	height:45px;		
+}
+
+div.jp-audio-stream div.jp-type-single a.jp-mute,
+div.jp-audio-stream div.jp-type-single a.jp-unmute {
+	margin-left:10px;
+}
+
+a.jp-mute {
+	background: url("icons.png") 0 3px no-repeat;
+}
+a.jp-mute:hover {
+	background: url("icons.png") 0 -93px no-repeat;
+}
+a.jp-unmute {
+	background: url("icons.png") 0 -46px no-repeat;
+	display: none;
+}
+a.jp-unmute:hover {
+	background: url("icons.png") 0 -141px no-repeat;
+}
+
+
+div.jp-volume-bar {	
+	position: absolute;
+	
+	overflow:hidden;
+	background: url("icons.png") -335px -38px repeat-x;
+	width: 110px;
+	height: 10px;
+	cursor: pointer;
+	
+}
+
+div.jp-audio-stream div.jp-volume-bar {
+	top: 70px;
+	right: 20px;
+}
+
+div.jp-volume-bar-value {
+	background: url("icons.png") -335px -24px repeat-x;
+	width:0px;
+	height: 10px;
+}
+
+
+
+
+
+
+
+div.jp-jplayer audio,
+div.jp-jplayer {
+	width:0px;
+	height:0px;
+}
+
+div.jp-jplayer {
+	background-color: #000000;
+}
+
+
+
+
+.jp-no-solution {
+	padding:5px;
+	font-size:.8em;
+	background-color:#eee;
+	border:2px solid #009be3;
+	color:#000;
+	display:none;
+}
+
+.jp-no-solution a {
+	color:#000;
+}
+
+.jp-no-solution span {
+	font-size:1em;
+	display:block;
+	text-align:center;
+	font-weight:bold;
+}
+
+

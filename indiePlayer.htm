@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+
+	<!-- Website Design By: www.happyworm.com -->
+	<title>RadioIndie Player</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="skin/indie/jplayer.indie.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+	<script type="text/javascript">
+	//<![CDATA[
+	$(document).ready(function(){
+		var timerOn = false;
+		var updateMeta = function(){
+			if(!timerOn){
+				setTimeout(updateMeta, 5000);
+				return;
+			}
+			
+			$.ajax({
+				type: 'GET',
+				url: 'metadata.php',
+				dataType: 'json',
+				success: function(data) {
+					$('.jp-artist').text('');
+					$('.jp-title').text('');
+					
+					var meta = data.metadata;
+					meta = meta.replace('RadioIndie - ', '');
+					var index = meta.indexOf(' - ');
+					var artist = '', title = meta;
+					if(index !== -1){
+						artist = meta.substr(0, index);
+						title = meta.substr(index + 3, meta.length - 1);
+					}
+					
+					$('.jp-artist').text(artist);
+					$('.jp-title').text(title);
+					
+					setTimeout(updateMeta, 5000);
+				},
+				error: function(){
+					setTimeout(updateMeta, 5000);
+				}
+			});
+		};
+		setTimeout(updateMeta, 5000);
+	
+
+		var stream = {
+			title: "РадиоИнди",
+			mp3: "http://stream.radioindie.ru:8000/radioindie"
+		},
+		ready = false;
+
+		$("#jquery_jplayer_1").jPlayer({
+			ready: function (event) {
+				ready = true;
+				$(this).jPlayer("setMedia", stream);
+			},
+			pause: function() {
+				timerOn = false;
+				$(this).jPlayer("clearMedia");
+			},
+			play: function(){
+				timerOn = true;
+			},
+			error: function(event) {
+				if(ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
+					// Setup the media stream again and play it.
+					$(this).jPlayer("setMedia", stream).jPlayer("play");
+				}
+			},
+			swfPath: "js",
+			supplied: "mp3",
+			preload: "none",
+			wmode: "window",
+			keyEnabled: true
+		});
+
+	});
+//]]>
+</script>
+</head>
+<body>
+
+		<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+
+		<div id="jp_container_1" class="jp-audio-stream">
+			<div class="jp-type-single">
+
+				<div class="jp-gui jp-interface">
+					<div class="jp-artist"></div>
+					<div class="jp-title"></div>
+					<ul class="jp-controls">
+						<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+						<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+						<li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+						<li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>				
+					</ul>
+					
+					<div class="jp-volume-bar">
+						<div class="jp-volume-bar-value"></div>
+					</div>
+					
+				</div>
+
+				<div class="jp-no-solution">
+					<span>Update Required</span>
+					To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+				</div>
+			</div>
+		</div>
+</body>
+
+</html>
