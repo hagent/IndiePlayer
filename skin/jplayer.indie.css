@@ -1,38 +1,65 @@
 div.jp-audio-stream {
-	width: 253px;
-	height: 107px;
-	padding-top: 43px;
-	background: url("playerbackground.jpg") no-repeat;
-	-webkit-box-shadow: 2px 2px 10px rgba(50, 50, 50, 1);
-	-moz-box-shadow:    2px 2px 10px rgba(50, 50, 50, 1);
-	box-shadow:         2px 2px 10px rgba(50, 50, 50, 1);
+	width: 220px;
+	height: 80px;
+	
+	-webkit-box-shadow: 2px 10px 10px rgba(50, 50, 50, 1);
+	-moz-box-shadow:    2px 10px 10px rgba(50, 50, 50, 1);
+	box-shadow:         2px 10px 10px rgba(50, 50, 50, 1);
 }
 
-div.jp-artist {
-	position: static;
-	font: arial 12px;
-	color: white;
-	height: 23px;
-	width: 200px;
-	padding-left: 25px;
+div.jp-header{
+
+	font-weight: bold;
+	letter-spacing: 2pt;
+	font-size: 20px;
+	font-family: Buenard, arial black, sans-serif;
+	line-height:1.2;
+
 	text-align: center;
+	height: 30px;
+	
+	background: #1e1e1e; /* Old browsers */
+	background: -o-linear-gradient(top, #1e1e1e 0%,#000000 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #1e1e1e 0%,#000000 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #3e3e3e 0%,#000000 100%); /* W3C */
+}
+
+span.jp-radio-caption{
+	color: white;
+}
+
+span.jp-indie-caption{
+	color: red;
+}
+
+div.jp-type-single{
+	background: url("playerbackground.jpg") no-repeat;
+	height: 55px;
+}
+
+div.jp-title-hidden
+{
+    position: absolute;
+    visibility: hidden;
+    height: auto;
+    width: auto;
+	font: 12px intro;	
+	line-height: 2.5;
 }
 
 div.jp-title {
-	font: bold 20px intro;	
+	font: 12px intro;	
 	color: white;
 	height: 28px;
-	width: 200px;
-	padding-left: 20px;
 	text-align: center;
+	line-height: 2.5;
 }
 
 div.jp-interface ul.jp-controls {
 	list-style-type:none;
 	margin:0;
-	padding: 0px 0 0 15px;
-	overflow:hidden;	
-	height: 49px;		
+	padding: 0 0 0 30px;
+	overflow:hidden;			
 }
 
 div.jp-interface ul.jp-controls li {
@@ -52,33 +79,33 @@ div.jp-interface ul.jp-controls a {
 }
 a.jp-play,
 a.jp-pause {
-	width:40px;
-	height:40px;	
+	width:20px;
+	height:20px;	
 }
 
 a.jp-play {
-	background: url("icons.png") -169px 3px no-repeat;
+	background: url("icons.png") 2px 2px no-repeat;
 }
 
 a.jp-play:hover {
-	background: url("icons.png") -169px -90px no-repeat;
+	background: url("icons.png") 2px -32px no-repeat;
 }
 
 
 a.jp-pause {
-	background: url("icons.png") -165px -35px no-repeat;
+	background: url("icons.png") -27px 0px no-repeat;
 	display: none;
 }
 a.jp-pause:hover {
-	background: url("icons.png") -165px -128px no-repeat;
+	background: url("icons.png") -27px -32px no-repeat;
 }
 
 
 a.jp-mute,
 a.jp-unmute,
-a.jp-volume-max {
-	width:50px;
-	height:45px;		
+a.jp-volume-max {	
+	width:20px;
+	height:20px;		
 }
 
 div.jp-audio-stream div.jp-type-single a.jp-mute,
@@ -87,17 +114,17 @@ div.jp-audio-stream div.jp-type-single a.jp-unmute {
 }
 
 a.jp-mute {
-	background: url("icons.png") 0 3px no-repeat;
+	background: url("icons.png") -54px -1px no-repeat;
 }
 a.jp-mute:hover {
-	background: url("icons.png") 0 -93px no-repeat;
+	background: url("icons.png") -54px -29px no-repeat;
 }
 a.jp-unmute {
-	background: url("icons.png") 0 -46px no-repeat;
+	background: url("icons.png") -81px -1px no-repeat;
 	display: none;
 }
 a.jp-unmute:hover {
-	background: url("icons.png") 0 -141px no-repeat;
+	background: url("icons.png") -81px -29px no-repeat;
 }
 
 
@@ -105,38 +132,25 @@ div.jp-volume-bar {
 	position: absolute;
 	
 	overflow:hidden;
-	background: url("icons.png") -335px -38px repeat-x;
-	width: 110px;
-	height: 10px;
+	background: url("icons.png") -125px -19px repeat-x;
+	width: 78px;
+	height: 5px;
 	cursor: pointer;
-	
-}
-
-div.jp-audio-stream div.jp-volume-bar {
-	top: 70px;
-	right: 20px;
+	top: 36px;
+	right: 40px;
 }
 
 div.jp-volume-bar-value {
-	background: url("icons.png") -335px -24px repeat-x;
-	width:0px;
-	height: 10px;
+	background: url("icons.png") -125px -13px repeat-x;
+	width: 0px;
+	height: 5px;
 }
-
-
-
-
-
 
 
 div.jp-jplayer audio,
 div.jp-jplayer {
 	width:0px;
 	height:0px;
-}
-
-div.jp-jplayer {
-	background-color: #000000;
 }
 
 
