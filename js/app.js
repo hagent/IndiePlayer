@@ -1,6 +1,5 @@
 $(function(){
 	var timerOn = false, prevTitle = '', timeOut = 2000;
-	$('marquee').marquee();
 	
 	var updateMeta = function(){
 		if(!timerOn){
@@ -28,7 +27,9 @@ $(function(){
 	};
 	
 	var setTitle = function(title){
-		$('.jp-title div div').text(title);
+		$('.jp-title').empty();
+		$('.jp-title').append('<marquee behavior="scroll" direction="left" scrollamount=1>' + title + '</marquee>');
+		$('marquee').marquee();
 	}
 	
 	setTimeout(updateMeta, timeOut);
