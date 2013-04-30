@@ -1,5 +1,7 @@
 $(function(){
 	var timerOn = false, prevTitle = '', timeOut = 2000;
+	$('marquee').marquee();
+	
 	var updateMeta = function(){
 		if(!timerOn){
 			setTimeout(updateMeta, timeOut);
@@ -15,14 +17,7 @@ $(function(){
 				if(title.length === 1) title = '';
 				if(prevTitle !== title){
 					prevTitle = title;
-					$('.jp-title').text('');
-					//проверяем длинну названия песни
-					if( $('div.jp-title-hidden').text(title).width() > 215){
-						$('.jp-title').append($('<marquee behavior="scroll" direction="left" scrollamount=1>' + title + '</marquee>'))
-						$('marquee').marquee();
-					} else {
-						$('.jp-title').text(title);
-					}
+					setTitle(title);
 				}
 				setTimeout(updateMeta, timeOut);
 			},
@@ -31,6 +26,11 @@ $(function(){
 			}
 		});
 	};
+	
+	var setTitle = function(title){
+		$('.jp-title div div').text(title);
+	}
+	
 	setTimeout(updateMeta, timeOut);
 
 
@@ -58,6 +58,7 @@ $(function(){
 				$(this).jPlayer("setMedia", stream).jPlayer("play");
 			}
 		},
+		volume: 0.5,
 		swfPath: "js",
 		supplied: "mp3",
 		preload: "none",
