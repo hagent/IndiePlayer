@@ -14,6 +14,7 @@ $(function(){
 			success: function(data) {				
 				var title = $.trim(data.metadata.replace('RadioIndie - ', ''));
 				if(title.length === 1) title = '';
+				if(title.length > 2 && title.indexOf('- ') === 0) title = title.substr(2);
 				if(prevTitle !== title){
 					prevTitle = title;
 					setTitle(title);
