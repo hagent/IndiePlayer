@@ -37,16 +37,6 @@ div.jp-type-single{
 	height: 55px;
 }
 
-div.jp-title-hidden
-{
-    position: absolute;
-    visibility: hidden;
-    height: auto;
-    width: auto;
-	font: 12px intro;	
-	line-height: 2.5;
-}
-
 div.jp-title {
 	font: 12px intro;	
 	color: white;
