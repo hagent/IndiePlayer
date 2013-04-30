@@ -18,9 +18,9 @@ div.jp-header{
 	text-align: center;
 	height: 30px;
 	
-	background: #1e1e1e; /* Old browsers */
-	background: -o-linear-gradient(top, #1e1e1e 0%,#000000 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #1e1e1e 0%,#000000 100%); /* IE10+ */
+	background: #131313; /* Old browsers */
+	background: -o-linear-gradient(top, #3e3e3e 0%,#000000 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #3e3e3e 0%,#000000 100%); /* IE10+ */
 	background: linear-gradient(to bottom, #3e3e3e 0%,#000000 100%); /* W3C */
 }
 
