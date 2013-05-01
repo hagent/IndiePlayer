@@ -14,7 +14,8 @@ div.jp-header{
 	font-size: 20px;
 	font-family: Buenard, arial black, sans-serif;
 	line-height:1.2;
-
+	
+	padding-left: 25px;
 	text-align: center;
 	height: 30px;
 	
@@ -22,6 +23,38 @@ div.jp-header{
 	background: -o-linear-gradient(top, #3e3e3e 0%,#000000 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top, #3e3e3e 0%,#000000 100%); /* IE10+ */
 	background: linear-gradient(to bottom, #3e3e3e 0%,#000000 100%); /* W3C */
+}
+
+div.jp-indie-icon{
+	position: absolute;
+	z-index: 1;
+	height: 20px;
+	width: 20px;
+	top: 2px;
+	left: -2px;
+	background: url("indieicon.png") no-repeat;
+}
+
+div.jp-indie-icon:hover {
+	-webkit-transform: scale(1.6) rotate(-40deg) translate(3px, -10px);
+	-moz-transform: scale(1.6) rotate(-40deg) translate(3px, -10px);
+	-o-transform: scale(1.6) rotate(-40deg) translate(3px, -10px);
+	transform: scale(1.6) rotate(-40deg) translate(3px, -10px);	
+	
+	-webkit-transition: transform .9s ease-in;
+	-moz-transition: transform .9s ease-in;
+	-o-transition: transform .9s ease-in;
+	transition: transform .9s ease-in;
+}
+
+div.jp-indie-icon-border{
+	position: absolute;
+	z-index: 0;
+	top: 13px;
+	left: 44px;
+	height: 15px;
+	width: 15px;
+	border: solid 2px white;
 }
 
 span.jp-radio-caption{
@@ -33,7 +66,7 @@ span.jp-indie-caption{
 }
 
 div.jp-type-single{
-	background: url("playerbackground.jpg") no-repeat;
+	background: url("playerbackground.jpg");
 	height: 55px;
 }
 
@@ -74,20 +107,20 @@ a.jp-pause {
 }
 
 a.jp-play {
-	background: url("icons.png") 2px 2px no-repeat;
+	background: url("icons.png") 2px -32px no-repeat;
 }
 
 a.jp-play:hover {
-	background: url("icons.png") 2px -32px no-repeat;
+	background: url("icons.png") 2px 2px no-repeat;
 }
 
 
 a.jp-pause {
-	background: url("icons.png") -27px 0px no-repeat;
+	background: url("icons.png") -27px -32px no-repeat;
 	display: none;
 }
 a.jp-pause:hover {
-	background: url("icons.png") -27px -32px no-repeat;
+	background: url("icons.png") -27px 0px no-repeat;
 }
 
 
