@@ -41,10 +41,10 @@ div.jp-indie-icon:hover {
 	-o-transform: scale(1.6) rotate(-40deg) translate(3px, -10px);
 	transform: scale(1.6) rotate(-40deg) translate(3px, -10px);	
 	
-	-webkit-transition: transform .9s ease-in;
-	-moz-transition: transform .9s ease-in;
-	-o-transition: transform .9s ease-in;
-	transition: transform .9s ease-in;
+	-webkit-transition: all 1s ease-in;
+	-moz-transition: all 1s ease-in;
+	-o-transition: all 1sease-in;
+	transition: all 1s ease-in;
 }
 
 div.jp-indie-icon-border{
