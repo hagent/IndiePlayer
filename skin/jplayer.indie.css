@@ -12,8 +12,8 @@ div.jp-header{
 	font-weight: bold;
 	letter-spacing: 2pt;
 	font-size: 20px;
-	font-family: Buenard, arial black, sans-serif;
-	line-height:1.2;
+	font-family: "Times New Roman", Times, serif;		
+	line-height: 1.2;
 	
 	padding-left: 25px;
 	text-align: center;
@@ -81,7 +81,7 @@ div.jp-title {
 div.jp-interface ul.jp-controls {
 	list-style-type:none;
 	margin:0;
-	padding: 0 0 0 30px;
+	padding: 0 0 0 33px;
 	overflow:hidden;			
 }
 
