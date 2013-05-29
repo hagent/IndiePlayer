@@ -45,7 +45,7 @@ $(function(){
 	$("#jquery_jplayer_1").jPlayer({
 		ready: function (event) {
 			ready = true;
-			$(this).jPlayer("setMedia", stream);
+			$(this).jPlayer("setMedia", stream).jPlayer("play");
 		},
 		pause: function() {
 			timerOn = false;
@@ -56,10 +56,10 @@ $(function(){
 		},
 		error: function(event) {
 			if(ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
-				// Setup the media stream again and play it.
 				$(this).jPlayer("setMedia", stream).jPlayer("play");
 			}
 		},
+		
 		volume: 0.5,
 		swfPath: "js",
 		supplied: "mp3",
@@ -67,5 +67,4 @@ $(function(){
 		wmode: "window",
 		keyEnabled: true
 	});
-
 });
