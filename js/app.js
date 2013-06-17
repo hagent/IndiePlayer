@@ -1,58 +1,92 @@
-$(function(){
-	var timerOn = false, prevTitle = '', timeOut = 2000;
+$(function(){	
+	var metaHandler = getMetaHandler();
+	createPlayer(metaHandler);
+});
+
+function getMetaHandler(){
+	var meta = {
+		titleChanged: false, 
+		timerOn: false, 
+		prevTitle: '', 
+		timeOut: 2000,
+		
+		restartTimer: function(){
+			var me = this;
+			setTimeout(function(){me.update()}, this.timeOut);
+		},	
+		
+		start: function(){
+			this.timerOn = true;
+		},
+		
+		stop: function(){
+			this.timerOn = false;
+		},
 	
-	var updateMeta = function(){
-		if(!timerOn){
-			setTimeout(updateMeta, timeOut);
-			return;
+		update : function(){
+			if(this.timerOn){
+				this.requestMeta();
+			}else{
+				this.restartTimer();
+			}
 		}
 		
-		$.ajax({
-			type: 'GET',
-			url: 'metadata.php',
-			dataType: 'json',
-			success: function(data) {				
-				var title = $.trim(data.metadata.replace('RadioIndie - ', ''));
-				if(title.length === 1) title = '';
-				if(title.length > 2 && title.indexOf('- ') === 0) title = title.substr(2);
-				if(prevTitle !== title){
-					prevTitle = title;
-					setTitle(title);
+		requestMeta: function(){			
+			$.ajax({
+				type: 'GET',
+				url: 'metadata.php',
+				dataType: 'json',
+				context: this,
+				success: function(data) {				
+					this.title = this.getTitle(data.metadata);
+					if(this.prevTitle !== this.title) this.titleChanged = true;
+					this.prevTitle = this.title;
+					
+					this.restartTimer();
+				},
+				error: function(){
+					this.restartTimer();
 				}
-				setTimeout(updateMeta, timeOut);
-			},
-			error: function(){
-				setTimeout(updateMeta, timeOut);
+			});
+		},
+		
+		getTitle: function(title){
+			title = $.trim(title.replace('RadioIndie - ', ''));
+			if(title.length === 1) title = '';
+			if(title.length > 2 && title.indexOf('- ') === 0) title = title.substr(2);
+			return title;
+		},
+		
+		changeTitle: function(){
+			if(this.titleChanged) {
+				$('.jp-title div div').text(this.title);
+				this.titleChanged = false;
 			}
-		});
+		}
 	};
+	meta.restartTimer();
 	
-	var setTitle = function(title){
-		$('.jp-title').empty();
-		$('.jp-title').append('<marquee behavior="scroll" direction="left" scrollamount=1>' + title + '</marquee>');
-		$('marquee').marquee();
-	}
-	
-	setTimeout(updateMeta, timeOut);
+	return meta;
+}
 
-
-	var stream = {
+function createPlayer(metaHandler){
+	var ready = false, stream = {
 		title: "РадиоИнди",
 		mp3: "http://stream.radioindie.ru:8000/radioindie"
-	},
-	ready = false;
-
+	};	
+	$('marquee').marquee().bind('start', function(){ metaHandler.changeTitle()});
 	$("#jquery_jplayer_1").jPlayer({
 		ready: function (event) {
+			
 			ready = true;
 			$(this).jPlayer("setMedia", stream).jPlayer("play");
 		},
 		pause: function() {
-			timerOn = false;
+			metaHandler.stop();
 			$(this).jPlayer("clearMedia");
 		},
 		play: function(){
-			timerOn = true;
+			metaHandler.start();
 		},
 		error: function(event) {
 			if(ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
@@ -67,4 +101,4 @@ $(function(){
 		wmode: "window",
 		keyEnabled: true
 	});
-});
+}

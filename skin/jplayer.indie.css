@@ -176,7 +176,9 @@ div.jp-jplayer {
 	height:0px;
 }
 
-
+marquee {
+	height: 25px;
+}
 
 
 .jp-no-solution {
