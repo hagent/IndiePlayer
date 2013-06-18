@@ -12,7 +12,7 @@ function getMetaHandler(){
 		
 		restartTimer: function(){
 			var me = this;
-			setTimeout(function(){me.update()}, this.timeOut);
+			setTimeout(function(){me.update();}, this.timeOut);
 		},	
 		
 		start: function(){
@@ -29,7 +29,7 @@ function getMetaHandler(){
 			}else{
 				this.restartTimer();
 			}
-		}
+		},
 		
 		requestMeta: function(){			
 			$.ajax({
@@ -74,10 +74,9 @@ function createPlayer(metaHandler){
 		title: "РадиоИнди",
 		mp3: "http://stream.radioindie.ru:8000/radioindie"
 	};	
-	$('marquee').marquee().bind('start', function(){ metaHandler.changeTitle()});
+	$('marquee').marquee().bind('start', function(){ metaHandler.changeTitle();});
 	$("#jquery_jplayer_1").jPlayer({
-		ready: function (event) {
-			
+		ready: function (event) {			
 			ready = true;
 			$(this).jPlayer("setMedia", stream).jPlayer("play");
 		},
